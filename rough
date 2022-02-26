@@ -1,0 +1,1137 @@
+ login
+ if(empty($_POST){
+    include 'view/login.php';
+    return;
+})
+ try(empty($_pOST['email]))
+ yedi login page ma milena vanee feri hal vanxa
+ sab parameter vayesi dbmodel laii call garxa ani parameter pass garxa ,tyo database ma gayera basxa 
+ sab page ma session variable set xa ki naii check garxa,
+ session set xiana vane login page ma paurauxa,
+ filtertext garne email ra password ma 
+ $email=filterText($_POST['email'])
+ $password=filterText($_POST['password'])
+ $user=db_login($email,$password);
+ if($user){
+     $_SESSION['user']['login']=TRUE;
+      $_SESSION['user']['user_id']=$user['id'];
+     redirect('userprofile');
+     getflash setflash hasflash function >>>>>
+
+ }
+ sign up 
+ head= if(hasflash('message')){
+     $flashError=getFlash('message');
+     foreach($FlashError as $fe){
+         ?>
+         <div class="alert" alert<?php echo $fe['typ']; >?
+     }
+ }
+
+
+ }
+ <style type="text/css">
+    .myborder{
+      border-color:grey;
+      border-radius:10%;
+      border-style:solid; 
+      padding:10px; 
+
+    }
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <div class="block">
+<div style="background-image: url('assets/images/topbg.jpg');" class="fixed-bg"></div>
+<div class="restaurant-searching text-center">
+    <div class="restaurant-searching-inner">
+        <h2 itemprop="headline">Order <span>Food Online From</span> the Best Restaurants</h2>
+        
+        <div class="row mrg10">
+            <div class="col-md-8 col-sm-7 col-lg-9 col-xs-12">
+                <div class="input-field brd-rd2" style="display:flex;">
+                    <select class="no-chosen" id="select" name="type"><option value="restaurant">Restaurant</option><option value="product">Product</option></select>
+                    <input class="brd-rd2" type="text" name="keywords" placeholder="Restaurant Name">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-3 col-xs-12">
+                        <button class="brd-rd2 red-bg" type="submit">SEARCH</button>
+                    </div>
+
+ ?>
+ <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">contact</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Eatwell</a>
+        <a class="dropdown-item" href="#">Hungry Tom 2</a>
+        <a class="dropdown-item" href="#">Tiffin Box</a>
+      </div>
+    </li>
+    
+        
+  </ul>
+</nav>
+ <?php
+  //model view contoller, sab ko alag alag folder banaune ani index ma sablaii include garne
+  session_start();
+  $base_url= 'http://localhost/myproject/';
+  $_SESSION['base url']=$base_url;
+  $_SESSION['active url']='';
+  
+  if(isset($_GET['r'])){
+      $controller=$_GET['r'];
+      switch($controller){
+          case'site':
+            $_SESSION['active_url']='site';
+            include'controller/.....php';//jun site ma jane ho teii lekhne tei laijanxa
+            break;
+            case'about':
+             $_SESSION['active_url']='about'; 
+             include'controller/.....php';//sbout page ja xa teiko dine link
+      }
+  }
+  //<form action ="<?php echo $base_url
+  ?> 
+  <div class="block top-padd80 bottom-padd80 dark-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="footer-data">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 col-lg-3">
+                                <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
+                                    <div class="logo">
+                                        <h1 itemprop="headline">
+                                            <a href="index.html#" title="Home" itemprop="url">
+                                                abc</a>
+                                        </h1>
+                                    </div>
+                                    <p itemprop="description">
+                                        Foodoko is Food and beverage order delivery platform established in Chitwan
+                                        to cater customer order through various medium... <a class="red-clr" href=#>Read More</a>
+                                    </p>
+                                    <div class="social2">
+                                        <a class="brd-rd50" href="#" title="Facebook" itemprop="url"
+                                           target="_blank"><i class="fa fa-facebook"></i></a>
+                                        <a class="brd-rd50" href="#" title="Instagram" itemprop="url"
+                                           target="_blank"><i class="fa fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-lg-3">
+
+                                <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                    <h4 class="widget-title" itemprop="headline">DELIVERY CHARGES</h4>
+                                    <ul>
+                                        <li><a href="#" title="" itemprop="url" data-toggle="modal" data-target="#charge-modal">Click Here to view our delivery charges.</a></li>
+                                    </ul>
+                                </div>
+                                                                    <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                        <h4 class="widget-title" itemprop="headline">PAYMENT METHODS</h4>
+                                        <ul>
+                                            
+                                                <li>Cash On Delivery</li>
+                                                
+                                        </ul>
+                                    </div>
+                                                            </div>
+                            <div class="col-md-3 col-sm-6 col-lg-3">
+                                <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
+                                    <h4 class="widget-title" itemprop="headline">IMPORTANT LINKS</h4>
+                                    <ul>
+                                        <li><a href="#" title="" itemprop="url">Contact Us</a></li>
+                                        <li><a href="#" title="" itemprop="url">About Us</a></li>
+                                        <li><a href="#" title="" itemprop="url">FAQ's</a></li>
+                                        <li><a href="#" title="" itemprop="url">How It Works</a></li>
+                                        <li><a href="#" title="" itemprop="url">Terms &amp; Conditions</a></li>
+                                        <li><a href="#" title="" itemprop="url">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-lg-3">
+                                <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                    <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
+                                    <ul>
+                                        <li>
+                                            <i class="fa fa-map-marker"></i> Narayangarh, Chitwan, Nepal
+                                        </li>
+                                        <li><i class="fa fa-phone"></i> 9825490573, 9846161676</li>
+                                        <li><i class="fa fa-envelope"></i>
+                                            <a href="mailto:samidhakal245@gmail.com" target="_top">info@foodoko.com</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+
+                                    <h4 class="widget-title" itemprop="headline">BE OUR PARTNER</h4>
+                                    <ul>
+                                        <li>
+                                            
+                                            
+                                            <a href="#" title="" itemprop="url">List Your Restaurant</a></li>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            </div>
+                        </div>
+                    </div><!-- Footer Data -->
+                     <div class="col-md-12 text-center"> 
+          <a href="#"><i class="fab fa-facebook-f white-text mr-4"> </i></a>         
+          <a href="#"><i class="fab fa-twitter white-text mr-4"> </i></a>
+          <a href="#"><i class="fab fa-google-plus-g white-text mr-4"> </i></a>
+          <a href="#"><i class="fab fa-linkedin-in white-text mr-4"> </i></a>
+          <a href="#"><i class="fab fa-instagram white-text"> </i></a> 
+         </div>
+         function get_aboutus(){
+             $conn=db connect();
+             $sql="SELECT* FROM about";
+             $result=$conn->cloase();
+             if(result->num_rows>0){
+                 return $result;
+             }
+             else{
+                 return false;
+             }
+         }
+         function create_new _user($unmae,$password,$utype,$add,$phone,$email,$gender$cdate){
+              $conn=db connect();
+             $sql=insert into($unmae,$password,$utype,$add,$phone,$email,$gender$cdate)
+         }
+
+             }
+         }
+          <li class="nav-item">
+      <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Search">
+    <div class="input-group-append">
+      <button class="btn btn-success" type="submit">Go</button>  
+     </div>
+  </div><a class="sign-btn" href="http://localhost/myproject/view/signup.php?r=signup" title="Register" itemprop="url">REGISTER</a>
+       </div>
+       <hr class="bg-light mb-2 mt-0 d-inline-block mx-auto" style="width: 85px; height: 2px">
+       <div class="footer-copyright text-center font-weight-bold py-3">
+       .charge{
+    border: 1px solid #FCF4A3;
+    border-radius:30px;
+  }
+  .charge a{
+      color:#FCF4A3 !important;
+      margin:7px;
+  }
+ <a href="#"> <button class="btn btn-warning" id="btn-delivery-charge"
+ <li><form class="form-inline" action="/action_page.php">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-warning" id="btnsearch" type="submit">Search</button> </form></li>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <?php include'header.php'?>
+<?php
+//global variable
+$txtUserID="";
+$txtUserName="";
+$txtPassword="";
+$txtConfirmPassword="";
+//for Message
+$Message="";
+if(isset($_GET["btnSave"]))
+{
+	//asign global variable values
+	$txtUserID=$_GET["txtUserID"];
+	$txtUserName=$_GET["txtUserName"];
+	$txtPassword=$_GET["txtPassword"];
+	$txtConfirmPassword=$_GET["txtConfirmPassword"];
+	
+	$conn=mysqli_connect("localhost","root","","lictbcadb");
+	if (!$conn) 
+	{
+	  die("Connection failed: " . mysqli_connect_error());
+	}
+	else
+	{
+		$query="insert into tbuser(uid,username,password)values(Null,'$txtUserName','$txtPassword')";
+		if(mysqli_query($conn,$query))
+		{
+			$Message= "Record inserted";
+		}
+		else
+		{
+			$Message="Record insertion fail";
+		}
+	}
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section>
+    <div class="block blackish low-opacity">
+        <div class="fixed-bg" style="background-image: url('bg.jpg');"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="title1-wrapper text-center">
+                        <div class="title1-inner">
+                            <h2 class="text-white" itemprop="headline">easy order in 3 steps</h2>
+                        </div>
+                    </div>
+                    <div class="remove-ext text-center">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                <div class="step-box wow fadeIn" data-wow-delay="0.2s">
+                                    <i><img src="assets/images/resource/setp-img1.png" alt="setp-img1.png"
+                                            itemprop="image"> <span class="brd-rd50 red-bg">1</span></i>
+                                    <div class="setp-box-inner">
+                                        <h4 itemprop="headline">Explore Restaurants</h4>
+                                        <p itemprop="description">Craving a particular cuisine? Pick from a large
+                                            collections of restaurants and get ordering.</p>
+                                    </div>
+                                </div><!-- Step Box -->
+                            <!-- </div>
+                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                <div class="step-box wow fadeIn" data-wow-delay="0.4s">
+                                    <i><img src="assets/images/resource/setp-img2.png" alt="setp-img2.png"
+                                            itemprop="image"> <span class="brd-rd50 red-bg">2</span></i>
+                                    <div class="setp-box-inner">
+                                        <h4 itemprop="headline">Pick Your Favourite Food</h4>
+                                        <p itemprop="description">Select the food of your choice from your favorite
+                                            restaurants and hit the order button.</p>
+                                    </div>
+                                </div><!-- Step Box -->
+                           <!--  </div>
+                            <div class="col-md-4 col-sm-4 col-lg-4">
+                                <div class="step-box wow fadeIn" data-wow-delay="0.6s">
+                                    <i><img src="assets/images/resource/setp-img3.png" alt="setp-img3.png"
+                                            itemprop="image"> <span class="brd-rd50 red-bg">3</span></i>
+                                    <div class="setp-box-inner">
+                                        <h4 itemprop="headline">Follow The Status</h4>
+                                        <p itemprop="description">Follow your order status as it goes from the
+                                            restaurant kitchen, to your home.</p>
+                                    </div>
+                                </div><!-- Step Box -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section --> --> -->
+
+
+
+
+
+<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body bg-secondary">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
+
+<div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Warning card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+<b>
+    <nav class="navbar navbar-expand-md navbar-dark  bg-dark ">
+  <a class="navbar-brand" href="#"><img src="my2.png"height="60" width="300"  class="img-responsive"></a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ <div class="collapse navbar-collapse " id="navbarSupportedContent" >
+ <ul class="navbar-nav   ms-auto  text-left">
+      <li class="nav-item active ">
+        <a class="nav-link" href="http://localhost/myproject?r=home">Home</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="http://localhost/myproject/view/about.php?r=about">About</a>
+      </li>
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+          Resturants
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Hungry Tom</a>
+        <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="http://localhost/myproject/view/eatwell.php?r=Eatwell">Eatwell</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Lime and Lemon</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Galaxy Empire</a>
+        <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">D'Mama</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Tiffin Box</a>
+        </div>
+        </li>
+       <li class="nav-item  active login  ">
+          <a class="nav-link " href="http://localhost/myproject/view/login.php?r=signin">login</a>
+       </li>
+      
+    </ul>
+  </div>
+  </div>
+</nav>
+</b>
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script> 
+
+
+
+
+
+
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+
+
+ <!--  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script> -->
+
+
+
+<?php include'headertry.php'?>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item "><a href="#">Home</a></li>
+  <li class="breadcrumb-item"><a href="#">Resturant</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Eatwell</li>
+  </ol>
+  </nav>
+
+
+  <div class="jumbotron jumbotron-fluid">
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the ..</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+  
+<?php include'footer.php'?>
+
+
+<div class="container">
+    <ul id="accordion" class="accordion">
+        <li>
+            <div class="link"><i class="fa fa-laptop"></i>Laptops<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="#">Dell Acron</a></li>
+                <li><a href="#">HP Envy</a></li>
+                <li><a href="#">Macbook Air</a></li>
+                <li><a href="#">Dell Acron</a></li>
+
+                <li><a href="#">Dell Acron</a></li>
+             <li><a href="#">Dell Acron</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="link"><i class="fa fa-tv"></i>Smart TV<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="#">Sony Bravia</a></li>
+                <li><a href="#">Samsung</a></li>
+                <li><a href="#">MI</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="link"><i class="fa fa-mobile"></i>Mobiles<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="#">Samsung S9</a></li>
+                <li><a href="#">Apple X</a></li>
+                <li><a href="#">Honor Play</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="link"><i class="fa fa-globe"></i>Search Engines<i class="fa fa-chevron-down"></i></div>
+            <ul class="submenu">
+                <li><a href="#">Google</a></li>
+                <li><a href="#">Bing</a></li>
+                <li><a href="#">Yahoo</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="bg-secondary">
+  <div class="container">
+    <div class="row py-2 d-flex justify-content-center  ">
+
+
+
+
+
+
+    
+<footer class="page-footer bg-dark text-white">
+<div class="container text-center text-md-left md-4">
+  <div class="row">
+  <div class="col-md-4 mx-auto mb-4">
+  <a class="logo" href="#"><img src="my2.png"height="70" width="250"  itemprop="image" ></a>
+      <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    </div>
+
+    <div class="col-md-2 mx-auto mb-4">
+    <h6 class="text-uppercase font-weight-Bold ">Service Area</h6>
+      <hr class="bg-light mb-2 mt-0 d-inline-block mx-auto" style="width: 100px; height: 1px">
+       <ul class="list-unstyled">
+          <li class="my-2">Chitwan</li>        
+          <li class="my-2">Gaidakot</li>
+          <li class="my-2">Bharatpur</li>
+          </ul>
+    <h6 class="text-uppercase font-weight-Bold">payment method </h6>
+    <hr class="bg-light mb-2 mt-0 d-inline-block mx-auto" style="width: 85px; height: 1px">
+    <ul class="list-unstyled">
+    <li >Cash On Delivery</li>
+    <button type="button" class="btn btn-outline-warning">Delivery Charges</button>
+    </div>
+    
+     <div class="col-md-2 mx-auto mb-4">
+      <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+      <hr class="bg-light mb-2 mt-0 d-inline-block mx-auto" style="width: 110px; height: 1px">
+        <ul class="list-unstyled">
+          <li class="my-2"><a href="#">Home</a></li>        
+          <li class="my-2"><a href="#">About</a></li>
+          <li class="my-2"><a href="#">Services</a></li>
+          <li class="my-2"> <a href="#">Contact us</a></li>         
+        </ul>
+    </div>
+
+    <div class="col-md-4 mx-auto mb-4">
+      <h6 class="text-uppercase font-weight-bold">Get in touch</h6>
+      <hr class="bg-light mb-2 mt-0 d-inline-block mx-auto" style="width: 100px; height: 1px">
+        <ul class="list-unstyled">
+          <li class="my-2"><i class="fas fa-home mr-3"></i>Gaidakot 2,kaligandaki chowk</li>
+          <li class="my-2"><i class="fas fa-envelope mr-3"></i><a href="mailto:foodoko@gmail.com">foodoko@gmail.com</a></li>
+          <li class="my-2"><i class="fas fa-phone mr-3"></i> +977 9825490573</li>
+          <li class="my-2"><i class="fas fa-print mr-3"></i> +977 9846161676</li>
+        </ul>
+   <h6 class="text-uppercase font-weight-bold">BE OUR PARTNER</h4>
+   <hr class="bg-light mb-2 mt-0 d-inline-block mx-auto" style="width: 100px; height: 1px">
+      <ul class="list-unstyled">
+      <li>
+      <a href="#" title="" itemprop="url">List Your Restaurant</a></li>
+     </li>
+  </div>
+  </div>
+  
+ <div class="row py-2 d-flex justify-content-center  ">
+   Copyright&copy;<a href="#">FOODOKO </a><p>All right reserved</p>
+</div>
+</div>
+</footer>
+</body>
+</html>
+
+
+
+
+
+
+
+<?php include'header.php'?>
+<div class="container">
+
+<div class="jumbotron jumbotron-fluid">
+<div class="signin">
+        <div class="row justify-content-center ">
+            <div class="col-md-6 col-sm-10 col-xs-6">
+            <div class="login-register-wrapper ">
+            <h3>SIGN IN</h3><hr class="bg-warning">
+                <div class="myborder"> 
+                <form class="form-horizantal">
+                    <label>username</label>
+                    <input type="text" class="form-control" name="username" placeholder="enter user name" required autofocus >
+                    <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+                    <br>
+                    <label>password</label>
+                    <input type="password" class="form-control" name="password" placeholder="enter your  password" required/>
+                    <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+                    <br>
+                    <div class="checkbox mb-3">
+                    <label>
+                    <input type="checkbox" value="remember-me"> Remember me?
+                    </label>
+                     </div>
+                    
+                    <input type="submit" name="send" value="SIGN IN" class="btn btn-warning"/>
+                    <input type="reset" value="clear" class="btn btn-secondary"/><br>
+                    <label><a class="signup" href="<?php $base_url ?>signup.php?r=signup"> Not a member?sign up</a></label>
+                
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    
+    <?php include'footer.php'?>
+
+
+
+
+.myborder {
+  background-color: #f5f5f5;
+  border-width: 20px;
+  border-color: #DFDFDF;
+  border-radius: 2%;
+  border-style: solid;
+  padding: 20px;
+}
+
+
+
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="row  justify-content-center">
+            <div class="col-md-6 col-sm-10 col-xs-6">
+                <h3> SIGN UP</h3><hr class="bg-warning">
+
+
+
+
+                <div id="login">
+        <h3 class="text-center   pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12 ">
+    
+                <div class="myborder">
+                <form class="form-horizantal" method="get" action="signup.php">
+                     Email<input type="text" class="form-control" name="userEmail" placeholder="Enter user email" required autofocus><br>
+                    FirstName<input type="text" class="form-control" name="userFirstName" placeholder="Enter First Name" required ><br>
+                    LastName<input type="text" class="form-control" name="userLastName" placeholder="Enter Last Name" required ><br>
+                    Phone Number<input type="text" class="form-control" name="userPhoneNumber" placeholder="Enter Mobile Number" required ><br>
+                    Password<input type="password" class="form-control" name="userPassword" placeholder="Enter password" required ><br>
+                    Confirm Password<input type="password" class="form-control" name="userConfirmPassord" placeholder="Password confirmation" required ><br>
+                    <input type="submit" name="SIGNUP" value="SIGN UP" class="btn btn-warning"/>
+                    <input type="reset" value="clear" class="btn btn-secondary">
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="bg-secondary">
+  <div class="container">
+    <div class="row py-2 d-flex justify-content-center  ">
+    <i >Follow us on :&nbsp;</i>
+  <i class="fab fa-facebook">&nbsp; </i>
+<i class="fab fa-twitter">&nbsp; </i>
+<i class="fab fa-instagram white-text"> </i>
+
+   </div>
+  </div>
+  </div>
+
+
+
+
+
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/slide.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/slide.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/slide.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+  
+
+<!-- -- Order Steps
+<section>
+    <div class="block blackish low-opacity">
+        <div class="fixed-bg" style="background-image: url('bg.jpg');"></div>
+        
+</section> -->
+
+
+
+
+
+ <h2>Order your favorite food</h2>
+        <h6><i>Count memories, not calories.!!</i></h6>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="images/slide3.jpg" alt="2" width="1100" height="500">
+      <div class="carousel-caption">
+        <h2>A little slice of heaven</h2>
+        <h6><i>Made with love.</i></h6>
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="images/c.jpg" alt="3" width="1100" height="500">
+      <div class="carousel-caption  ">
+        <h3>A day is best started on a full stomach.</h3>
+        <p> <i >good food good mood</i></p>
+      </div>   
+    </div>
+
+
+
+    <div class="card mb-3 bg-secondary justify-content-center align-items-center">
+  <img src="eatwell.jpg" class="card-img-top " alt="...">
+  <div class="card-body ">
+    <h5 class="card-title">Eatwell</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-muted">waooo</small></p>
+  </div>
+
+
+  .card-img-top {
+  padding-left:100px;
+  padding-right:100px;
+  margin-top:10px;
+    height: 20vw;
+    object-fit: cover;
+}
+
+
+
+
+about ko css
+#about{
+   height:100px;
+ }
+.about-section {
+  background: url("a.jpg") no-repeat left ;
+  background-size: 100%;
+  overflow: hidden;
+  padding: 170px 0;
+
+}
+
+.about-inner {
+  width: 60%;
+  float: right;
+  background-color: #ffc107;
+  padding: 130px;
+}
+.aboutbg{
+  background-color:#DFDFDF ;
+
+}
+
+
+
+
+.my-2 a{
+  color:white;
+}
+
+
+
+
+<!-- <div id="signup">
+        <h3 class="text-center  pt-5">SIGN UP FORM</h3>
+        <div class="container">
+            <div id="signup-row" class="row justify-content-center align-items-center">
+                <div id="signup-column" class="col-md-6">
+                    <div id="signup-box" class="col-md-12">
+                    
+                        <form id="signup-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">SIGN IN</h3>
+                            <div class="form-group">
+                                <label for="firstname" class="text-info">Firstname:</label><br>
+                                <input type="text" name="username" id="Firstname" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname" class="text-info">Lastname:</label><br>
+                                <input type="text" name="password" id="Lastname" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="text-info">Email:</label><br>
+                                <input type="text" name="username" id="Email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password</label><br>
+                                <input type="text" name="username" id="Password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="conformpassword" class="text-info">Conform Password</label><br>
+                                <input type="Password" name="username" id="ConformPassword" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="rememberme" class="text-info"> <span><input id="remember-me" name="remember-me" type="checkbox"></span><span>Remember me</span></label><br>
+                                <input type="submit" name="submit" class="btn btn-warning btn-md" value="submit">
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ -->
+
+
+
+ <?php include'view/header.php'?>
+<?php
+//global variable
+$userEmail="";
+$userFirstName="";
+$userLastName="";
+$userPhoneNumber="";
+$userPassword="";
+//for Message
+$Message="";
+if(isset($_GET["SIGNUP"]))
+{
+ $userEmail=$_GET["userEmail"];
+$userFirstName=$_GET["userFirstName"];
+$userLastName=$_GET["userLastName"];
+$userPhoneNumber=$_GET["userPhoneNumber"];
+$userPassword=$_GET["userPassword"];
+
+	//asign global variable values
+	
+	
+	$conn=mysqli_connect("localhost","root","","Projectdb");
+	if (!$conn) 
+	{
+	  die("Connection failed: " . mysqli_connect_error());
+	}
+	else
+	{
+		$query="insert into tbuser(UserID,Email,FirstName,LastName,PhoneNumber,Password)values(Null,'$userEmail','$userFirstName','$userLastName','$userPhoneNumber','$userPassword')";
+		if(mysqli_query($conn,$query))
+		{
+			$Message= " Sucessfully Signed up";
+		}
+		else
+		{
+			$Message="SOrry!!!you were unable to sign up";
+		}
+	}
+	
+	
+}
+
+?>
+
+
+if (isset($_GET['r'])) {
+    $controller = $_GET['r'];
+    switch ($controller) {
+        case 'home':
+            $_SESSION['active_url'] = 'home' ;
+            include 'view/home.php';
+            break;
+            case 'about' :
+                $_SESSION['active_url'] = 'about';
+                include 'view/about.php';
+                break;
+                case 'login':
+                    $_SESSION['active_url'] = 'login';
+                    include 'view/login.php';
+                    break;
+                case 'signup':
+                    $_SESSION['active_url'] = 'signup';
+                    include 'view/signup.php';
+                    break;
+                    case 'eatwell':
+                        $_SESSION['active_url'] = 'eatwell';
+                        include 'view/eatwell.php';
+                        break;
+                        case 'contact':
+                            $_SESSION['active_url'] = 'contact';
+                            include 'view/contactUS.php';
+                            break;
+                            case 'galaxy':
+                                $_SESSION['active_url'] = 'eatwell';
+                                include 'view/eatwell.php';
+                                break;
+
+
+                                 <span class="pricex pull-right">NRS 50.00 /-
+                                                     </span>
+                                                                                                    </div>
+                                                <form method="POST" action="https://www.merokinmel.com/cart" accept-charset="UTF-8"><input name="_token" type="hidden" value="lrX8DdDZrc3zOJKhu2jA7CKdkYpDnIOvUyqqg4xF">
+                                                <div class="ord-btn btn-sec">
+                                                    <input type="hidden" name="product" value="3919">
+                                                    <input type="hidden" name="category" value="654">
+                                                    <input type="hidden" name="city"
+                                                           value="1">
+                                                                                                            <div class="qty-wrap">
+                                                            <input class="qty" type="text" name="quantity" value="1" min="1">
+                                                            <button class="button-rdx" type="submit">Add To Cart</button>
+                                                        </div>
+
+                                                                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+
+
+                                    <nav aria-label="...">
+  <ul class="pagination pagination-sm">
+    <li class="page-item active" aria-current="page">
+      <span class="page-link">1</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+  </ul>
+</nav>
+
+
+
+<!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div id="login">
+        <h3 class="text-center  pt-5">Login form</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                    
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div class="form-group">
+                                <label for="username" class="text-info">Username:</label><br>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input type="text" name="password" id="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="remember-me" class="text-info"> <span><input id="remember-me" name="remember-me" type="checkbox"></span><span>Remember me</span></label><br>
+                                <input type="submit" name="submit" class="btn btn-warning btn-md" value="submit">
+                            </div>
+                            <label><a class="signup " href="http://localhost/myproject/view/signup.php?r=signup"> Not a member?sign up</a></label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+    </div>
+
+
+<footer class="container-fluid bg-light">
+    <div class="text-center "><b>Copyright <a href="#">©FOODOKO</a> 2016- <?php echo  date("Y");?>  All rights reserved</b>.</div>
+      <!-- <div class="text-center center-block">
+                <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+</div> -->
+</footer>
+</body>
+</html>
+
+
+
+ <?php
+ $restaurant=view_restaurant();
+ if($restaurant){
+  while($row=$restaurant->fetch_assoc()){
+    echo " <li  ><a class='dropdown-item' href=''>".$row["RestaurantName"]."</a></li>"
+            ."<li><hr class='dropdown-divider'></li>";
+  }
+ }
+?> 
+
+ <!-- <li><a class="dropdown-item" href="">Hungry Tom</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="?r=galaxy">Galaxy Empire</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="?r=eatwell">Eatwell</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">D'Mama</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Tiffin Box</a></li>  -->
+
+
+            <?php
+$restaurant=view_restaurant();
+if($restaurant){
+echo"<div class='col-md-5 col-sm-12 col-lg-4'>"
+."<div class='card' style='width: 18rem;'>"
+ ." <div class='card-header'>YOUR ORDER</div>"
+ ." <ul class='list-group list-group-flush'>";
+  while($row=$restaurant->fetch_assoc()){
+  echo
+    "<li class='list-group-item'>".$row["RestaurantName"]."</li>";
+}
+  echo"</ul>"
+."</div></div></div>";
+}
+?>
